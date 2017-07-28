@@ -5,6 +5,14 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 const SWIPE_THRESHOLD = 0.15 * SCREEN_WIDTH
 
 class Deck extends Component {
+    static defaultProps = {
+        onSwipeRight: ()=>{
+
+        },
+        onSwipeLeft: ()=>{
+            
+        }
+    }
     constructor(props){
         super(props);
         const position = new Animated.ValueXY()
@@ -23,7 +31,7 @@ class Deck extends Component {
             }
         });
 
-        this.state= {panResponder, position}
+        this.state= {panResponder, position, index: 0 }
     }
     
     forceSwipe(direction){
@@ -35,8 +43,9 @@ class Deck extends Component {
     }
 
     onSwipeComplete(){
-        const { onSwipeLeft, onSwipeRight } = this.props
-        direction === 'right' ? onSwipeRight() : onSwipeLeft()
+        const { onSwipeLeft, onSwipeRight, data } = this.props
+        const item = data[this.state.index]
+        direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item)
     }
 
     resetPosition(){
