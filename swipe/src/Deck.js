@@ -92,7 +92,7 @@ class Deck extends Component {
                     {this.props.renderCard(item)}
                 </View>
             )
-        })
+        }).reverse()
     }
 
     render(){
@@ -106,7 +106,8 @@ class Deck extends Component {
 
 const styles = {
     cardStyle: {
-        position:  'absolute'
+        position:  'absolute',
+        width: SCREEN_WIDTH
     }
 }
 
