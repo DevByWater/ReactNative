@@ -9,7 +9,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <Scene key='root' style={styles.container}>
+        <Scene key='root' style={styles.container} >
           <Scene key='home' component={Home} title="Home"/>
           <Scene key='chat' component={Chat} title="Chat"/>          
         </Scene>
@@ -20,10 +20,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingTop: 64,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff'
   }
 });
